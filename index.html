@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image slider</title>
+    <script
+      src="https://kit.fontawesome.com/08c259bb2c.js"
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      h1 {
+        text-align: center;
+      }
+      i {
+        font-size: 2rem;
+        cursor: pointer;
+        position: absolute;
+        top: 38%;
+        color: rgb(255, 166, 0);
+        background: rgb(16, 231, 70);
+        border-radius: 50%;
+        padding: 2px;
+      }
+      .fa-angle-right{
+        right: 31%;
+      }
+      .fa-angle-left{
+        left: 31%;
+      }
+      img {
+        width: 550px;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <h1>Image Slider</h1>
+      <div class="image-container">
+        <i onclick="prevImg()" class="fa-solid fa-angle-left"></i>
+        <img src="./1.webp" alt="" id="img-slider" />
+
+        <i onclick="nxtImg()" class="fa-solid fa-angle-right"></i>
+      </div>
+    </div>
+
+    <script>
+      var imageArr = [];
+      imageArr[0] = "1.webp";
+      imageArr[1] = "2.webp";
+      imageArr[2] = "3.webp";
+      i = 0;
+
+      let image = document.getElementById("img-slider");
+
+      setInterval("nxtImg()",2000);
+
+      function nxtImg() {
+        if (i < imageArr.length - 1) {
+          i++;
+        } else {
+          i = 0;
+        }
+        image.src = imageArr[i];
+      }
+      function prevImg() {
+        if (i > 0) {
+          i--;
+        } else {
+          i = imageArr.length-1;
+        }
+        image.src = imageArr[i];
+      }
+    </script>
+  </body>
+</html>
